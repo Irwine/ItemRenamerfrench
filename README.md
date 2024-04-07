@@ -1,20 +1,19 @@
-# ItemRenamer
-A Synthesis Patcher for Skyrim that adjusts item and spell names to match those specified in one or more user configurable files, usually to facilitate better inventory sorting.
+# ItemRenamerFrench
+Est la traduction du patch Synthesis éponyme pour skyrim. Celui-ci permet de modifier le nom des objets et sorts par l'intermédiaire d'un fichier de configuration utilisateur, dans l'optique de mieux trier ou ajuster le nom des objets selon votre liste de mod.
 
-A default config file is provided with support for the vanilla game and DLC. I also include definitions for a few mods that I personally use.
+Un fichier de configuration par défaut est fourni, il contient les informations du jeu de base et de ses DLCs. D'autres fichiers utilisés par l'auteur sont disponibles. Je rajouterais sans doute les miens avec le temps.
 
-# Current List of Supported Mods
+# Liste des mods supportés
 - Beyond Skyrim - Bruma
 - Mysticism
 
 # Configuration
-To add suport for additional mods, or to change a name definition, simply create one or more json files in the patcher data directory, and they will be read in alphabetical order by file name.
-For instance, you could create a file called CustomRules.json in the ```C:/../Synthesis/Data/Skyrim Special Edition/ItemRenamer``` directory.
+Pour que d'autres mods soient supportés, créez un ou plusieurs fichiers json dans le data du patcher. Ils seront lus par ordre alphabétique.
+Pour des instances vous pouvez créer un fichier nommé  CustomRules.json dans le dossier ```C:/../Synthesis/Data/Skyrim Special Edition/ItemRenamer``` .
 
-If, for instance, you wanted to change the name of the gold item from Gold to Septim, you could put:
+Si pour une instance vous souhaitez modifier pièces d'or par septims, ajoutez sur une ligne sans oublier les guillemets "" d'ouverture et de fermeture.
+00000F:Skyrim.esm": "Septim",```
+À noter que les dialogues entre autres ne seront pas affectés. Dans cet exemple 00000F est le FormID de l'objet pièces d'or tel qu'il est vu dans xEdit, sans l'index de l'ordre de chargement, et Skyrim.esm est le plugin ou le fichier maître qui définit l'objet à l'origine. La dernière partie de la ligne est le nom que vous souhaitez donner à l'objet ou au sort. Enfin, n'oubliez pas d'ajouter des virgules après toutes les lignes sauf la dernière, ainsi que des accolades ouvrantes et fermantes pour chaque fichier.
 
-```"00000F:Skyrim.esm": "Septim",```
+Je vous invite à consulter les fichiers du dossier default, lui-même inclus dans le dossier data afin de voir davantage d'exemples.
 
-on a line in that file, along with the opening and closing JSON braces. In this case, 00000F is the FormID of the Gold item as seen in xEdit, without the load order index, and Skyrim.esm is the plugin or master file where the item was originally defined. Finally the last part of the line is what you would like to rename the item or spell to. Finally, don't forget to add commas after all lines except the last, as well as opening and closing curly braces to each file.
-
-You can browse the rules included in Default folder in the patcher data folder for more examples.
